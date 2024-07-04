@@ -1,7 +1,6 @@
 package com.study1.poststudy.domain;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -16,11 +15,14 @@ import lombok.Data;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+
+    @Column(name = "postId")
+    private int postId;
 
     @CreationTimestamp
     @Column(name = "createdDateTime")
@@ -29,13 +31,6 @@ public class Post {
     @Column(name = "writer")
     private String writer;
 
-    @Column(name = "postTitle")
-    private String postTitle;
-
-    @Column(name = "postContent")
-    private String postContent;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "postId")
-    private List<Comment> commentList;
+    @Column(name = "content")
+    private String content;
 }
