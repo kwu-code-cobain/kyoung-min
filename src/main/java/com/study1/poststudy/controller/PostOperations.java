@@ -2,6 +2,7 @@ package com.study1.poststudy.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,17 +20,20 @@ public interface PostOperations {
     @PostMapping("/create")
     ResponseEntity<Post> createPost(@RequestBody PostRequest dto);
 
-    @GetMapping("/search/writer")
+    @GetMapping("/{id}")
+    ResponseEntity<Post> getPost(@PathVariable int id);
+
+    @GetMapping(path = "/search", params = "writer")
     ResponseEntity<List<Post>> searchPostByWriter(@RequestParam String writer);
 
-    @GetMapping("/search/title")
+    @GetMapping(path = "/search", params = "title")
     ResponseEntity<List<Post>> searchPostByTitle(@RequestParam String postTitle);
 
     @GetMapping("/search/all")
     ResponseEntity<List<Post>> searchAll();
 
-    @PutMapping("change")
-    ResponseEntity<Post> changePost(@RequestParam int id, @RequestBody PostRequest dto);
+    @PutMapping("change/{id}")
+    ResponseEntity<Post> changePost(@PathVariable int id, @RequestBody PostRequest dto);
 
     @DeleteMapping("/delete")
     void deletePost(@RequestParam int id);

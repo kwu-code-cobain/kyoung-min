@@ -20,6 +20,11 @@ public class PostController implements PostOperations {
     public ResponseEntity<Post> createPost(PostRequest dto) {
         return ResponseEntity.ok(service.savePost(dto));
     }
+    
+    @Override
+    public ResponseEntity<Post> getPost(int id) {
+        return ResponseEntity.ok(service.searchById(id));
+    }
 
     @Override
     public ResponseEntity<List<Post>> searchPostByWriter(String writer) {

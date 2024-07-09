@@ -8,6 +8,8 @@ import java.util.List;
 public interface PostService {
     Post savePost(PostRequest dto);
 
+    Post searchById(int id);
+
     List<Post> searchByWrtier(String writer);
 
     List<Post> searchByPostTitle(String title);

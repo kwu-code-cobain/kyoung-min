@@ -35,8 +35,5 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public void deleteComment(int id) {
         repository.deleteById(id);
-        // TODO Auto-generated method stub
-        // throw new UnsupportedOperationException("Unimplemented method 'deleteComment'");
     }
-
 }
