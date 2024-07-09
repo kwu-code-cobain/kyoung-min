@@ -26,6 +26,11 @@ public class PostServiceImpl implements PostService {
                         .postContent(dto.getPostContent())
                         .build());
     }
+    
+    @Override
+    public Post searchById(int id) {
+        return repository.findById(id).get();
+    }
 
     @Override
     public List<Post> searchByWrtier(String writer) {
@@ -55,5 +60,4 @@ public class PostServiceImpl implements PostService {
         result.setWriter(dto.getWriter());
         return result;
     }
-
 }
