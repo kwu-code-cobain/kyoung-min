@@ -1,6 +1,7 @@
 package com.study1.poststudy.controller;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.study1.poststudy.dto.request.PostRequest;
@@ -9,6 +10,7 @@ import com.study1.poststudy.domain.Post;
 
 import lombok.RequiredArgsConstructor;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -18,7 +20,9 @@ public class PostController implements PostOperations {
 
     @Override
     public ResponseEntity<Post> createPost(PostRequest dto) {
-        return ResponseEntity.ok(service.savePost(dto));
+        Post result = service.savePost(dto);
+        URI createdLocation = URI.create("/post/" + result.getId());
+        return ResponseEntity.created(createdLocation).body(result);
     }
     
     @Override
