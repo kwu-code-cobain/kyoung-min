@@ -3,6 +3,7 @@ package com.study1.poststudy.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.study1.poststudy.dto.request.CommentRequest;
@@ -18,7 +19,7 @@ public class CommentController implements CommentOperations {
 
     @Override
     public ResponseEntity<Comment> createComment(CommentRequest dto) {
-        return ResponseEntity.ok(service.saveComment(dto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(service.saveComment(dto));
     }
 
     @Override
