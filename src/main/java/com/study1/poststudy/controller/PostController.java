@@ -1,7 +1,6 @@
 package com.study1.poststudy.controller;
 
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import com.study1.poststudy.dto.request.PostRequest;
