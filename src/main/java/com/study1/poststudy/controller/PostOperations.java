@@ -35,6 +35,6 @@ public interface PostOperations {
     @PutMapping("change/{id}")
     ResponseEntity<Post> changePost(@PathVariable int id, @RequestBody PostRequest dto);
 
-    @DeleteMapping("/delete")
-    void deletePost(@RequestParam int id);
+    @DeleteMapping("/delete/{id}")
+    void deletePost(@PathVariable int id);
 }
