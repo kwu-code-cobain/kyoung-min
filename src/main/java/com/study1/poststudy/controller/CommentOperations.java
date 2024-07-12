@@ -15,12 +15,12 @@ import com.study1.poststudy.domain.Comment;
 
 @RequestMapping("/comment")
 public interface CommentOperations {
-    @PostMapping("/create")
+    @PostMapping
     ResponseEntity<Comment> createComment(@RequestBody CommentRequest dto);
 
-    @GetMapping("/search/{postId}")
+    @GetMapping("/{postId}")
     ResponseEntity<List<Comment>> searchPostByWriter(@PathVariable int postId);
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     void deleteComment(@PathVariable int id);
 }
