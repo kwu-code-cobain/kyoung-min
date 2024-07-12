@@ -17,24 +17,24 @@ import java.util.List;
 
 @RequestMapping("/post")
 public interface PostOperations {
-    @PostMapping("/create")
+    @PostMapping
     ResponseEntity<Post> createPost(@RequestBody PostRequest dto);
 
     @GetMapping("/{id}")
     ResponseEntity<Post> getPost(@PathVariable int id);
 
-    @GetMapping(path = "/search", params = "writer")
+    @GetMapping(params = "writer")
     ResponseEntity<List<Post>> searchPostByWriter(@RequestParam String writer);
 
-    @GetMapping(path = "/search", params = "title")
+    @GetMapping(params = "title")
     ResponseEntity<List<Post>> searchPostByTitle(@RequestParam String postTitle);
 
-    @GetMapping("/search/all")
+    @GetMapping
     ResponseEntity<List<Post>> searchAll();
 
-    @PutMapping("change/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<Post> changePost(@PathVariable int id, @RequestBody PostRequest dto);
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     void deletePost(@PathVariable int id);
 }
