@@ -29,8 +29,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> searchByPostId(int postId) {
-        return repository.findAllByPostId(postId)
-                .orElseThrow(() -> new IllegalArgumentException());
+        return repository.findAllByPostId(postId);
     }
 
     @Override

@@ -6,6 +6,6 @@ import com.study1.poststudy.domain.Comment;
 import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Integer>{
-    Optional<List<Comment>> findAllByPostId(int postId);
+    List<Comment> findAllByPostId(int postId);
     
 }

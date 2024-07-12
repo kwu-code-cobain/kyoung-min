@@ -26,7 +26,7 @@ public class PostServiceImpl implements PostService {
                         .postContent(dto.getPostContent())
                         .build());
     }
-
+    
     @Override
     public Post searchById(int id) {
         return repository.findById(id).get();
@@ -34,14 +34,12 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> searchByWrtier(String writer) {
-        return repository.findAllByWriter(writer)
-                .orElseThrow(() -> new IllegalArgumentException(writer));
+        return repository.findAllByWriter(writer);
     }
 
     @Override
     public List<Post> searchByPostTitle(String postTitle) {
-        return repository.findAllByPostTitle(postTitle)
-                .orElseThrow(() -> new IllegalArgumentException(postTitle));
+        return repository.findAllByPostTitle(postTitle);
     }
 
     @Override
